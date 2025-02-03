@@ -22,7 +22,7 @@ public class User extends BaseAuditing {
     private static final short LAST_ACTIVE_INTERVAL = 5 ;
     @Id
     @Column(name = "user_id", nullable = false)
-    private String userId;
+    private String id;
 
     @Column(name = "first_name", nullable = false)
     private String firstname;

@@ -19,7 +19,7 @@ public class Message extends BaseAuditing {
     @Id
     @SequenceGenerator(name = "msg_seq", sequenceName = "msg_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "msg_seq")
-    private Long messageId;
+    private Long id;
 
     @Column(columnDefinition = "TEXT")
     private String content;
@@ -28,7 +28,7 @@ public class Message extends BaseAuditing {
     private MessageType messageType;
 
     @Enumerated(EnumType.STRING)
-    private MessageState messageState;
+    private MessageState state;
 
     @Column(name = "sender_id", nullable = false)
     private String senderId;

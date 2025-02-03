@@ -21,7 +21,7 @@ public class Chat extends BaseAuditing {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String chatId;
+    private String id;
 
     @ManyToOne
     @JoinColumn(name = "sender_id")
