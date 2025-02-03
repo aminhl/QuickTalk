@@ -11,12 +11,16 @@ import org.nexthope.quicktalk.commons.BaseAuditing;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static org.nexthope.quicktalk.user.UserConstants.FIND_USER_BY_EMAIL;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
+@NamedQuery(name = FIND_USER_BY_EMAIL,
+        query = "select u from User u where u.email = :email")
 public class User extends BaseAuditing {
 
     private static final short LAST_ACTIVE_INTERVAL = 5 ;
@@ -45,7 +49,5 @@ public class User extends BaseAuditing {
     public boolean isUserOnline() {
         return lastSeen != null && lastSeen.isAfter(LocalDateTime.now().minusMinutes(LAST_ACTIVE_INTERVAL));
     }
-
-
 
 }
